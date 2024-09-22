@@ -38,3 +38,26 @@ console.log (`A ${hours} hour shift has been assigned to ${employeeName} on ${da
 assignShift ("Rhodes","Thursday", 5);
 assignShift  ("Vaugh", "Tuesday", 2);
 
+function calculateTotalHours(employeeName){
+const employee= employees.find(employee=> employee.name==employeeName);
+
+if (!employee) {
+    console.log (`Employee ${employeeName} not found.`);
+    return;
+}
+
+let TotalHours=0;
+for (let i=0; i< employee.shifts.length; i++ ){
+    TotalHours += employee.shifts[i].hours;
+}
+console.log (`${employeeName} has worked for ${TotalHours} hours.`);
+return TotalHours;
+}
+calculateTotalHours("Peter");
+calculateTotalHours("Vaugh");
+calculateTotalHours("Steve");
+calculateTotalHours("Rhodes");
+calculateTotalHours ("Val");
+
+
+
